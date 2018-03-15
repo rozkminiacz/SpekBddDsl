@@ -1,0 +1,20 @@
+ext {
+
+    def JunitVersion = '4.12'
+    def KotlinMockitoVersion = '1.5.0'
+    def SpekVersion = "1.1.5"
+
+    unitTestDependencies = [
+            junit      : "junit:junit:${JunitVersion}",
+    ]
+
+    kotlinTestDependencies = [
+            kotlinMockito: "com.nhaarman:mockito-kotlin:${KotlinMockitoVersion}",
+    ]
+
+    spekDependencies = [
+            spekApi: "org.jetbrains.spek:spek-api:${SpekVersion}",
+            platformEngine: "org.jetbrains.spek:spek-junit-platform-engine:${SpekVersion}",
+            junitPlatformRunner: "org.junit.platform:junit-platform-runner:1.0.0"
+    ]
+}
