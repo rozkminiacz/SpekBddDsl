@@ -1,11 +1,14 @@
 # Spek BDD Extensions
 [![](https://jitpack.io/v/rozkminiacz/SpekBddDsl.svg)](https://jitpack.io/#rozkminiacz/SpekBddDsl)
 
+>only Spek 1.x is supported
+
 ## About
 This library provides some extensions for [Spek](http://spekframework.org/), to match Behavior-Driven-Development specifications language.
 
 | Spek BDD DSL         | Spek DSL |
 |---:           | ---:      |
+| Scenario      | group     |
 | Story         | group     |
 | Given         | group     |
 | When          | group     |
@@ -44,12 +47,7 @@ import me.rozkmin.spekbdd.BddDsl.Then
 import me.rozkmin.spekbdd.BddDsl.When
 import org.jetbrains.spek.api.Spek
 
-import org.junit.Assert.assertTrue
-import org.junit.platform.runner.JUnitPlatform
-import org.junit.runner.RunWith
-
-@RunWith(JUnitPlatform::class)
-object SpekBddExample : Spek({
+class SpekBddExample : Spek({
     Story("user is looking for a bus") {
         //setup context of a user
         Given("bus list screen") {
@@ -74,6 +72,36 @@ object SpekBddExample : Spek({
     }
 })
 
+```
+
+## Disabling test groups
+add `x` before method call - this will ignore specific test or container.
+For example, don't want to test "user has favorite stops" yet, but we want to have full specification written:
+```kotlin
+class ManyCaseScenarioSample : Spek({
+    Scenario("user is looking for a bus") {
+        //setup context of a user
+        Given("bus list screen") {
+            When("enters bus list screen") {
+                xAnd("has favorite stops", "not implemented yet") {
+                    Then("display list of bus with favorites on top") {
+                        assertTrue(true)
+                    }
+                }
+                And("has not favorite stops") {
+                    Then("display list of bus") {
+                        assertTrue(true)
+                    }
+                }
+            }
+            When("enters bus detail screen") {
+                Then("display detailed bus stop") {
+                    assertTrue(true)
+                }
+            }
+        }
+    }
+})
 ```
 
 ## Summary
