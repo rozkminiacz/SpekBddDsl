@@ -1,5 +1,5 @@
 # Spek BDD Extensions
-[![](https://jitpack.io/v/rozkminiacz/SpekBddDsl.svg)](https://jitpack.io/#rozkminiacz/SpekBddDsl)
+[ ![Download](null/packages/rozkminiacz/SpekBDD/spek-bdd/images/download.svg?version=1.1) ](https://bintray.com/rozkminiacz/SpekBDD/spek-bdd/1.1/link)
 
 >only Spek 1.x is supported
 
@@ -21,14 +21,14 @@ This library provides some extensions for [Spek](http://spekframework.org/), to 
 	allprojects {
 		repositories {
 			...
-			maven { url 'https://jitpack.io' }
+			maven { url 'https://dl.bintray.com/rozkminiacz/SpekBDD/' }
 		}
 	}
 ```
 
 ```gradle
 	dependencies {
-	        testCompile 'com.github.rozkminiacz:SpekBddDsl:1.0'
+	        testCompile 'me.rozkmin.spekbdd:spek-bdd:1.1'
 	}
 
 ```
